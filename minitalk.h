@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minitalk.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahibrahi <ahibrahi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aken <aken@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 04:28:20 by ahibrahi          #+#    #+#             */
-/*   Updated: 2023/11/30 17:17:07 by ahibrahi         ###   ########.fr       */
+/*   Updated: 2023/12/01 21:25:17 by aken             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <signal.h>
-# include "math.h"
+# include <math.h>
 
 # ifndef S_TIME
-#  define S_TIME 100
+#  define S_TIME 5000
 # endif
 
 void	ft_ascii2bin(int n, int pid);

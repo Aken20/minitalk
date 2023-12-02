@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utilitys.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahibrahi <ahibrahi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aken <aken@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 15:35:29 by ahibrahi          #+#    #+#             */
-/*   Updated: 2023/11/30 15:37:56 by ahibrahi         ###   ########.fr       */
+/*   Updated: 2023/12/01 21:24:08 by aken             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	ft_atoi(const char *str)
 	return (aoi * s);
 }
 
-int	ft_putstr(char *s)
+static	int	ft_putstr(char *s)
 {
 	int	i;
 
