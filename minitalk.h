@@ -19,10 +19,6 @@
 # include <signal.h>
 # include <math.h>
 
-# ifndef S_TIME
-#  define S_TIME 5000
-# endif
-
 void	ft_ascii2bin(int n, int pid);
 void	ft_bin2ascii(int s);
 int		ft_itoa(long long n);
