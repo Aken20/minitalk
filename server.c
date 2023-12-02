@@ -6,7 +6,7 @@
 /*   By: aken <aken@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 14:20:17 by ahibrahi          #+#    #+#             */
-/*   Updated: 2023/12/01 21:47:36 by aken             ###   ########.fr       */
+/*   Updated: 2023/12/01 21:52:21 by aken             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ void	ft_bin2ascii(int s)
 
 int	main(void)
 {
-
 	ft_itoa(getpid());
 	write(1, "\n", 2);
 	signal(SIGUSR1, ft_bin2ascii);
