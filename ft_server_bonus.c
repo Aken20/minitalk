@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_server_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahibrahi <ahibrahi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aken <aken@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 14:20:17 by ahibrahi          #+#    #+#             */
-/*   Updated: 2023/12/25 23:41:11 by ahibrahi         ###   ########.fr       */
+/*   Updated: 2023/12/25 15:44:49 by aken             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ void	ft_bin2ascii(int s, siginfo_t *info, void *context)
 
 int	main(void)
 {
+	struct sigaction	sa;
+
 	sa.sa_sigaction = ft_bin2ascii;
 	sa.sa_flags = SA_SIGINFO;
 	ft_itoa(getpid());

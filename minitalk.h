@@ -3,17 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   minitalk.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahibrahi <ahibrahi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aken <aken@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 04:28:20 by ahibrahi          #+#    #+#             */
-/*   Updated: 2023/12/25 23:40:19 by ahibrahi         ###   ########.fr       */
+/*   Updated: 2023/12/25 15:39:04 by aken             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINITALK_H
 # define MINITALK_H
 
-// struct	sigaction sa;
 
 # include <unistd.h>
 # include <stdlib.h>
