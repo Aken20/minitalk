@@ -1,29 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   utilitys2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahibrahi <ahibrahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/28 04:28:20 by ahibrahi          #+#    #+#             */
-/*   Updated: 2023/12/25 23:40:19 by ahibrahi         ###   ########.fr       */
+/*   Created: 2023/12/25 23:39:12 by ahibrahi          #+#    #+#             */
+/*   Updated: 2023/12/25 23:39:34 by ahibrahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#include "minitalk.h"
 
-// struct	sigaction sa;
-
-# include <unistd.h>
-# include <stdlib.h>
-# include <signal.h>
-# include <math.h>
-
-void	ft_ascii2bin(int n, int pid);
-int		ft_itoa(long long n);
-int		ft_atoi(const char *str);
-int		ft_putstr(char *s);
-void	ft_recive(int sig);
-
-#endif
+void	ft_recive(int sig)
+{
+	if (sig == SIGUSR1)
+		ft_putstr("Massage Recived");
+	exit (0);
+}

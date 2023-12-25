@@ -6,7 +6,7 @@
 #    By: ahibrahi <ahibrahi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/28 04:39:30 by ahibrahi          #+#    #+#              #
-#    Updated: 2023/12/25 21:46:18 by ahibrahi         ###   ########.fr        #
+#    Updated: 2023/12/25 23:42:19 by ahibrahi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,9 +17,9 @@ CFILES = ft_client utilitys \
 
 SFILES = ft_server utilitys \
 
-B_CFILES = ft_client_bonus utilitys \
+B_CFILES = ft_client_bonus utilitys utilitys \
 
-B_SFILES = ft_server_bonus utilitys \
+B_SFILES = ft_server_bonus utilitys utilitys2 \
 
 CSRCS = $(addsuffix .c, $(CFILES))
 

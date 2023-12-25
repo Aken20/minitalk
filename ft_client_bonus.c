@@ -6,7 +6,7 @@
 /*   By: ahibrahi <ahibrahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 14:20:22 by ahibrahi          #+#    #+#             */
-/*   Updated: 2023/12/25 21:43:22 by ahibrahi         ###   ########.fr       */
+/*   Updated: 2023/12/25 23:38:35 by ahibrahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ int	main(int argc, char **argv)
 {
 	int		i;
 
+	signal(SIGUSR1, ft_recive);
 	i = 0;
 	if (argc == 3)
 	{
@@ -109,8 +110,11 @@ int	main(int argc, char **argv)
 			ft_ascii2bin(argv[2][i], ft_atoi(argv[1]));
 			i++;
 		}
+		ft_ascii2bin(0, ft_atoi(argv[1]));
 	}
 	else
 		ft_putstr("Invalid Number of Arguments");
+	while (1)
+		pause ();
 	return (0);
 }
