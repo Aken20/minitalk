@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_client_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahibrahi <ahibrahi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aken <aken@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 14:20:22 by ahibrahi          #+#    #+#             */
-/*   Updated: 2023/12/25 23:38:35 by ahibrahi         ###   ########.fr       */
+/*   Updated: 2023/12/25 15:26:15 by aken             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,17 +94,12 @@ int	main(int argc, char **argv)
 	i = 0;
 	if (argc == 3)
 	{
-		if (!ft_isdigit(argv[1]))
+		if (!ft_isdigit(argv[1]) || 
+			ft_atoi(argv[1]) <= 0 || ft_atoi(argv[1]) >= 2147483647)
 		{
 			ft_putstr("Invalid PID");
 			return (0);
 		}
-		if (ft_atoi(argv[1]) <= 0 || ft_atoi(argv[1]) >= 2147483647)
-		{
-			ft_putstr("Invalid PID");
-			return (0);
-		}
-		i = 0;
 		while (argv[2][i])
 		{
 			ft_ascii2bin(argv[2][i], ft_atoi(argv[1]));
@@ -114,7 +109,5 @@ int	main(int argc, char **argv)
 	}
 	else
 		ft_putstr("Invalid Number of Arguments");
-	while (1)
-		pause ();
 	return (0);
 }
