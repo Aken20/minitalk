@@ -6,11 +6,26 @@
 /*   By: ahibrahi <ahibrahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 14:20:22 by ahibrahi          #+#    #+#             */
-/*   Updated: 2023/12/25 16:49:20 by ahibrahi         ###   ########.fr       */
+/*   Updated: 2023/12/25 21:42:47 by ahibrahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
+
+static int	ft_isdigit(char *c)
+{
+	int	i;
+
+	i = 0;
+	while (c[i])
+	{
+		if (c[i] >= '0' && c[i] <= '9')
+			i++;
+		else
+			return (0);
+	}
+	return (1);
+}
 
 static void	ft_send(char *s, int pid)
 {
@@ -48,7 +63,6 @@ static char	*ft_strrev(char *s, int len)
 	return (ms);
 }
 
-
 void	ft_ascii2bin(int n, int pid)
 {
 	char	*s;
@@ -71,7 +85,6 @@ void	ft_ascii2bin(int n, int pid)
 	ft_send(s, pid);
 	return ;
 }
-
 
 int	main(int argc, char **argv)
 {

@@ -6,7 +6,7 @@
 #    By: ahibrahi <ahibrahi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/28 04:39:30 by ahibrahi          #+#    #+#              #
-#    Updated: 2023/12/25 21:22:42 by ahibrahi         ###   ########.fr        #
+#    Updated: 2023/12/25 21:46:18 by ahibrahi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,4 +54,4 @@ fclean:
 
 re: clean all
 
-.PHONY: bonus all fclean re
+.PHONY: all clean fclean re bonus

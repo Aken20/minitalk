@@ -6,7 +6,7 @@
 /*   By: ahibrahi <ahibrahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 14:20:17 by ahibrahi          #+#    #+#             */
-/*   Updated: 2023/12/25 16:22:21 by ahibrahi         ###   ########.fr       */
+/*   Updated: 2023/12/25 21:41:25 by ahibrahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_bin2ascii(int s)
 {
 	static int	i;
-	static unsigned	 int k;
+	static int	k;
 
 	if ((!i && !k) || i > 8)
 	{

@@ -6,26 +6,11 @@
 /*   By: ahibrahi <ahibrahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 15:35:29 by ahibrahi          #+#    #+#             */
-/*   Updated: 2023/12/25 16:40:19 by ahibrahi         ###   ########.fr       */
+/*   Updated: 2023/12/25 21:42:15 by ahibrahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
-
-int	ft_isdigit(char *c)
-{
-	int i;
-	
-	i = 0;
-	while (c[i])
-	{
-		if (c[i] >= '0' && c[i] <= '9')
-			i++;
-		else
-			return (0);
-	}
-		return (1);
-}
 
 int	ft_atoi(const char *str)
 {
