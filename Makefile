@@ -6,29 +6,52 @@
 #    By: ahibrahi <ahibrahi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/28 04:39:30 by ahibrahi          #+#    #+#              #
-#    Updated: 2023/12/25 13:40:35 by ahibrahi         ###   ########.fr        #
+#    Updated: 2023/12/25 21:22:42 by ahibrahi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-Name = Minitalk
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
+CFILES = ft_client utilitys \
+
+SFILES = ft_server utilitys \
+
+B_CFILES = ft_client_bonus utilitys \
+
+B_SFILES = ft_server_bonus utilitys \
+
+CSRCS = $(addsuffix .c, $(CFILES))
+
+SSRCS = $(addsuffix .c, $(SFILES))
+
+B_CSRCS = $(addsuffix .c, $(B_CFILES))
+
+B_SSRCS = $(addsuffix .c, $(B_SFILES))
 
 
-all: $(Name)
+all: client server
 
-$(Name): client server
+bonus: client_bonus server_bonus
 
-re: fclean all
+client: $(CSRCS)
+	$(CC) $(CFLAGS) $(CSRCS) -o client
 
-client:
-	$(CC) $(CFLAGS) ft_client.c utilitys.c -o client 
+server: $(SSRCS)
+	$(CC) $(CFLAGS) $(SSRCS) -o server
 
-server:
-	$(CC) $(CFLAGS) ft_server.c utilitys.c -o server
+client_bonus: $(B_CSRCS)
+	$(CC) $(CFLAGS) $(B_CSRCS) -o client_bonus
 
-fclean:
+server_bonus: $(B_SSRCS)
+	$(CC) $(CFLAGS) $(B_SSRCS) -o server_bonus
+
+clean:
 	$(RM) client server
 
-.PHONY: all fclean client server
+fclean:
+	$(RM) client server client_bonus server_bonus
+
+re: clean all
+
+.PHONY: bonus all fclean re

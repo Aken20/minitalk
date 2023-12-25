@@ -3,43 +3,48 @@
 /*                                                        :::      ::::::::   */
 /*   utilitys.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aken <aken@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ahibrahi <ahibrahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 15:35:29 by ahibrahi          #+#    #+#             */
-/*   Updated: 2023/12/01 21:24:08 by aken             ###   ########.fr       */
+/*   Updated: 2023/12/25 16:40:19 by ahibrahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
+int	ft_isdigit(char *c)
+{
+	int i;
+	
+	i = 0;
+	while (c[i])
+	{
+		if (c[i] >= '0' && c[i] <= '9')
+			i++;
+		else
+			return (0);
+	}
+		return (1);
+}
+
 int	ft_atoi(const char *str)
 {
-	int			s;
 	int			aoi;
 	int			i;
 
 	i = 0;
-	s = 1;
 	if (str[i] == 0)
 		return (0);
-	while ((str[i] >= 9 && str[i] <= 13) || (str[i] == 32))
-		++i;
-	if (str[i] == '-' || str[i] == '+')
-	{
-		if (str[i] == '-')
-			s = -1;
-		++i;
-	}
-	if (str[i] >= 48 && str[i] <= 57)
+	if (str[i] > 48 && str[i] <= 57)
 		aoi = (str[i++] - 48);
 	else
 		return (0);
 	while (str[i] >= 48 && str[i] <= 57)
 		aoi = (aoi * 10) + (str[i++] - 48);
-	return (aoi * s);
+	return (aoi);
 }
 
-static	int	ft_putstr(char *s)
+int	ft_putstr(char *s)
 {
 	int	i;
 
