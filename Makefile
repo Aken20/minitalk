@@ -3,55 +3,48 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ahibrahi <ahibrahi@student.42.fr>          +#+  +:+       +#+         #
+#    By: aken <aken@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/28 04:39:30 by ahibrahi          #+#    #+#              #
-#    Updated: 2023/12/25 23:42:19 by ahibrahi         ###   ########.fr        #
+#    Updated: 2023/12/29 08:37:01 by aken             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
-RM = rm -f
-CFILES = ft_client utilitys \
+CFLAGS = -Wall -Wextra #-Werror
+RM = rm -rf
 
-SFILES = ft_server utilitys \
+NAME = Minitalk
 
-B_CFILES = ft_client_bonus utilitys utilitys \
+SRCSS = ft_server.c utility.c
+SRCSC = ft_client.c utility.c
 
-B_SFILES = ft_server_bonus utilitys utilitys2 \
+BSRCSS = ft_server_b.c utility.c
+BSRCSC = ft_client_b.c utility.c
 
-CSRCS = $(addsuffix .c, $(CFILES))
+OBJSS = $(SRCSS:.c=.o)
+OBJSC = $(SRCSC:.c=.o)
+BOBJSS = $(BSRCSS:.c=.o)
+BOBJSC = $(BSRCSC:.c=.o)
 
-SSRCS = $(addsuffix .c, $(SFILES))
+%.o: %.c
 
-B_CSRCS = $(addsuffix .c, $(B_CFILES))
+all: $(NAME)
 
-B_SSRCS = $(addsuffix .c, $(B_SFILES))
+$(NAME): $(OBJSS) $(OBJSC)
+	$(CC) $(CFLAGS) $(OBJSS) -o server -lm
+	$(CC) $(CFLAGS) $(OBJSC) -o client
 
-
-all: client server
-
-bonus: client_bonus server_bonus
-
-client: $(CSRCS)
-	$(CC) $(CFLAGS) $(CSRCS) -o client
-
-server: $(SSRCS)
-	$(CC) $(CFLAGS) $(SSRCS) -o server
-
-client_bonus: $(B_CSRCS)
-	$(CC) $(CFLAGS) $(B_CSRCS) -o client_bonus
-
-server_bonus: $(B_SSRCS)
-	$(CC) $(CFLAGS) $(B_SSRCS) -o server_bonus
+bonus: $(BOBJSS) $(BOBJSC)
+	$(CC) $(CFLAGS) $(BOBJSS) -o server_bonus -lm
+	$(CC) $(CFLAGS) $(BOBJSC) -o client_bonus
 
 clean:
-	$(RM) client server
+	$(RM) $(OBJSS) $(OBJSC) $(BOBJSS) $(BOBJSC)
 
-fclean:
-	$(RM) client server client_bonus server_bonus
+fclean: clean
+	$(RM) $(NAME)
 
-re: clean all
+re: fclean all
 
 .PHONY: all clean fclean re bonus
