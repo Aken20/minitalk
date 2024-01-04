@@ -3,21 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   minitalk.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aken <aken@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ahibrahi <ahibrahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 04:28:20 by ahibrahi          #+#    #+#             */
-/*   Updated: 2023/12/25 15:39:04 by aken             ###   ########.fr       */
+/*   Updated: 2024/01/04 22:15:27 by ahibrahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINITALK_H
 # define MINITALK_H
 
-
 # include <unistd.h>
 # include <stdlib.h>
 # include <signal.h>
-# include <math.h>
 
 void	ft_ascii2bin(int n, int pid);
 int		ft_itoa(long long n);

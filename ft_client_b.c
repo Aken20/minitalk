@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_client_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_client_b.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aken <aken@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ahibrahi <ahibrahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 14:20:22 by ahibrahi          #+#    #+#             */
-/*   Updated: 2023/12/29 08:11:36 by aken             ###   ########.fr       */
+/*   Updated: 2024/01/04 22:33:24 by ahibrahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,21 +22,28 @@ void	ft_recive(int sig)
 static void	ft_send(char *s, int pid)
 {
 	int	i;
+	int	k;
 
 	i = 0;
 	while (s[i])
 	{
 		if (s[i] == 48)
-			if (!kill(pid, SIGUSR1))
-				exit (ft_putstr("Wrong PID"));
-		if (s[i] == 49)
-			if (kill(pid, SIGUSR2))
-				exit (ft_putstr("Wrong PID"));
-		i++;
+			k = kill(pid, SIGUSR1);
+		if (k != 0)
+		{
+			free(s);
+			exit (ft_putstr("Wrong PID"));
+		}
+		if (s[i++] == 49)
+			k = kill(pid, SIGUSR2);
+		if (k != 0)
+		{
+			free(s);
+			exit (ft_putstr("Wrong PID"));
+		}
 		usleep (500);
 	}
 	free(s);
-	return ;
 }
 
 static char	*ft_strrev(char *s, int len)
@@ -88,11 +95,14 @@ int	main(int argc, char **argv)
 	i = 0;
 	if (argc == 3)
 	{
-		if (ft_atoi(argv[1]) <= 0 || ft_atoi(argv[1]) >= 2147483647)
+		while (argv[1][i])
 		{
-			ft_putstr("Invalid PID");
-			return (0);
+			if (!(argv[1][i] >= 48 && argv[1][i++] <= 57))
+				return (ft_putstr("Invalid PID"));
 		}
+		i = 0;
+		if (ft_atoi(argv[1]) <= 0 || ft_atoi(argv[1]) >= 2147483647)
+			return (ft_putstr("Invalid PID"));
 		while (argv[2][i])
 		{
 			ft_ascii2bin(argv[2][i], ft_atoi(argv[1]));
