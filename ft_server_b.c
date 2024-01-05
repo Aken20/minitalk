@@ -6,7 +6,7 @@
 /*   By: ahibrahi <ahibrahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 14:20:17 by ahibrahi          #+#    #+#             */
-/*   Updated: 2024/01/04 22:14:11 by ahibrahi         ###   ########.fr       */
+/*   Updated: 2024/01/05 05:17:05 by ahibrahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,7 @@ void	ft_bin2ascii(int s, siginfo_t *info, void *context)
 {
 	static int	i;
 	static int	k;
-	int			pid;
 
-	pid = info->si_pid;
 	context = 0;
 	if ((!i && !k) || i > 8)
 	{
@@ -41,12 +39,11 @@ void	ft_bin2ascii(int s, siginfo_t *info, void *context)
 	if (i == 8)
 	{
 		if (k == 0)
-			ft_send_recive(pid);
+			ft_send_recive(info->si_pid);
 		write(1, &k, 1);
 		i = 0;
 		k = 0;
 	}
-	return ;
 }
 
 int	main(void)

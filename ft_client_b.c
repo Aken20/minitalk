@@ -6,7 +6,7 @@
 /*   By: ahibrahi <ahibrahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 14:20:22 by ahibrahi          #+#    #+#             */
-/*   Updated: 2024/01/04 22:33:24 by ahibrahi         ###   ########.fr       */
+/*   Updated: 2024/01/05 05:09:38 by ahibrahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,25 +22,14 @@ void	ft_recive(int sig)
 static void	ft_send(char *s, int pid)
 {
 	int	i;
-	int	k;
 
 	i = 0;
 	while (s[i])
 	{
 		if (s[i] == 48)
-			k = kill(pid, SIGUSR1);
-		if (k != 0)
-		{
-			free(s);
-			exit (ft_putstr("Wrong PID"));
-		}
+			kill(pid, SIGUSR1);
 		if (s[i++] == 49)
-			k = kill(pid, SIGUSR2);
-		if (k != 0)
-		{
-			free(s);
-			exit (ft_putstr("Wrong PID"));
-		}
+			kill(pid, SIGUSR2);
 		usleep (500);
 	}
 	free(s);
